@@ -1,0 +1,129 @@
+<div class="contents companyList">
+    <div class="contentsBody">
+        <div class="subCont">
+            <ul class="tab">
+                <li role="presentation">
+                    <a href="/dashboard/report/analysis">분석</a>
+                </li>
+                <li role="presentation">
+                    <a href="/dashboard/report/summary" class="on">스토리지</a>
+                </li>
+            </ul>
+            <div class="contBox">
+                <form class="form-inline" name="reportForm" role="form" method="POST">
+                    <div class="bbsTop">
+                        <div class="searchkBox">
+                            <input type="hidden" name="page" value="1" >
+                            <input type="hidden" name="type" value="summary" id="type" >
+                            <input type="hidden" name="virtualId" value="<?php p($virtual); ?>" id="virtualId" >
+
+                            <select  class="deviceSelect" name="device" id="device">
+                                <option value="">Virtual Select</option>
+                                <?php if (empty($device) === false): ?>
+                                <?php foreach($device as $dev): ?>
+                                <?php $select = (empty($search) === false && $dev['device_idx'] === intval($search['device'])) ? 'selected' : ''; ?>
+                                <option value="<?php p($dev['device_idx']); ?>" <?php p($select); ?>><?php p($dev['device_name']); ?></option>
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                            <select class="virtual" name="virtual" id="virtual">
+                                <option value="">Port Select</option>
+                            </select>
+                            <input type="text" name="date" id="datepicker" class="form-control" readonly value="<?php p((empty($search['date']) === false) ? $search['date'] : ''); ?>" style="width:100px;">
+                            <input type="text" name="start" id="timepicker2" class="form-control" readonly value="<?php p((empty($search['start']) === false) ? $search['start'] : ''); ?>" style="width:60px;">
+                            <input type="text" name="end" id="timepicker3" class="form-control" readonly value="<?php p((empty($search['end']) === false) ? $search['end'] : ''); ?>" style="width:60px;">
+                            <button type="button" class="btn2">조회</button>
+                        </div>
+                        <div class="timeBtn">
+                            <a href="#" class="xls" id="downXls"><span>엑셀 다운로드</span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="" style="margin-top:10px;">
+                <label style="padding:10px;">총 <?php p( ($summary['paginator']['totalRow']) ? $summary['paginator']['totalRow'] : 0); ?> 건</label>
+            </div>
+            <div class="borderList">
+                <table id="datatable" class="list" cellpadding="0" cellspacing="0">
+                    <colgroup>
+                        <col width="14%"/><col width="14%"/><col width="14%"/>
+                        <col width="14%"/><col width="20%"/><col width="14%"/><col width="*"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>PSet</th>
+                        <th>Status</th>
+                        <th>Torque</th>
+                        <th>Angle</th>
+                        <th>Result time</th>
+                        <th>Virtual</th>
+                        <th>port</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if (empty($summary['lists']) === false): ?>
+                    <?php
+                    foreach ($summary['lists'] as $list):
+                 ?>
+                    <tr>
+                        <td><?php p($list['data_set']); ?></td>
+                        <td><?php p(($list['data_status'] == 1) ? 'OK' : 'NOK' ); ?></td>
+                        <td><?php p($list['data_torque']); ?></td>
+                        <td><?php p($list['data_angle']); ?></td>
+                        <td style="mso-number-format: 'yyyy-mm-dd hh:mm:ss'"><?php p($list['data_create_date']); ?></td>
+                        <td><?php p($list['device_name']); ?></td>
+                        <td><?php p($list['virtual_port']); ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="7" class="empty"> empty </td>
+                    </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+            <?php if ($summary['paginator']['lastNum'] > 1): ?>
+            <?php
+                            $linkUrl = '?';
+                            if (empty($search['device']) === false) {
+                                $linkUrl .= '&device=' . $search['device'];
+                            }
+                            if (empty($search['date']) === false) {
+                                $linkUrl .= '&date=' . $search['date'];
+                            }
+                            if (empty($search['start']) === false) {
+                                $linkUrl .= '&start=' . $search['start'];
+                            }
+                            if (empty($search['end']) === false) {
+                                $linkUrl .= '&end=' . $search['end'];
+                            }
+                ?>
+            <div class="paging">
+                    <span class="pagingBox">
+                        <?php if ($summary['paginator']['totalPage'] > 10): ?>
+                           <a href="<?php p($linkUrl); ?>&page=1; ?>" class="btn btn_1"><em></em></a>
+                        <?php endif; ?>
+                        <?php if ($summary['paginator']['page'] > 1 && $summary['paginator']['prevPage'] >= 1): ?>
+                            <a href="<?php p($linkUrl); ?>&page=<?php p($summary['paginator']['prevPage']); ?>" class="btn btn_2"><em></em></a>
+                        <?php endif; ?>
+                        <span class="num">
+                            <?php for ($i = $summary['paginator']['startNum']; $i < ($summary['paginator']['lastNum'] + 1); ++$i): ?>
+                            <?php if($i !== $summary['paginator']['page']): ?>
+                            <a href='<?php p($linkUrl); ?>&page=<?php p($i); ?>'><?php p($i); ?></a>
+                            <?php endif; ?>
+                            <?php if($i === $summary['paginator']['page']): ?>
+                            <strong><?php p($i); ?></strong>
+                            <?php endif; ?>
+                            <?php endfor; ?>
+                        </span>
+                        <?php if ($summary['paginator']['nextPage'] > 1 && $summary['paginator']['lastPage'] > $summary['paginator']['page']): ?>
+                            <a href="<?php p($linkUrl); ?>&page=<?php p($summary['paginator']['nextPage']); ?>" class="btn btn_3"><em></em></a>
+                        <?php endif; ?>
+                        <?php if ($summary['paginator']['totalPage'] > 10): ?>
+                           <a href="<?php p($linkUrl); ?>&page=<?php p($summary['paginator']['lastPage']); ?>" class="btn btn_1"><em></em></a>
+                        <?php endif; ?>
+                    </span>
+            </div>
+            <?php endif; ?>
+        </div>

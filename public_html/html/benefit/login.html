@@ -1,0 +1,40 @@
+<div class="wrapper-page login">
+    <div class="text-center">
+        <a class="logo" href="#">
+            <img src="/images/login_logo.png" style="margin-bottom: 15px;" />
+        </a>
+    </div>
+    <div class="loginbgBox">
+        <form id="loginForm" name="loginForm" class="" method="POST" action="/login">
+            <ul class="">
+                <li>
+                    <strong>아이디</strong>
+                    <input id="email" name="email" class="it id bg" placeholder="<?php ep('input_email'); ?>" required="" type="text" value="<?php p((empty($_COOKIE['save_id']) ? '' : $_COOKIE['save_id'])); ?>">
+                </li>
+                <li>
+                    <strong>비밀번호</strong>
+                    <input id="passwd" name="passwd" class="it pw bg" placeholder="<?php ep('input_password'); ?>" required="" type="password">
+                </li>
+            </ul>
+            <div class="idSaveChk">
+                <input id="checkbox-signup"  class="" type="checkbox" <?php p(((empty($_COOKIE['save_id'])===false) ? 'checked' : '' )); ?>>
+                <label for="checkbox-signup" class="checkbox-signup-label" id="save_id">
+                    아이디 저장
+                </label>
+            </div>
+            <div class="btnBox">
+                <button type="submit" id="loginButton" ><span class=""><?php ep('login'); ?></span></button>
+            </div>
+            <div class="row lnkBox">
+                <div class="col-sm-12">
+                    <a class="lnk_findpw" href="/password">
+                        비밀번호를 잊으셨나요?
+                    </a>
+                    <a class="lnk_join" href="/register">
+                            <?php ep('reg_member'); ?>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="<?php ep('title_main'); ?>" name="description" />
+    <meta content="UlalaLAB" name="author" />
+    <!-- App Favicon -->
+    <link href="/images/favicon.ico" rel="shortcut icon" />
+    <!-- App title -->
+    <title>
+        <?php ep('title_main'); ?>
+    </title>
+    <!-- dygraph -->
+    <link rel="stylesheet" href="/css/dygraph.css">
+    <!-- App CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/font.css" rel="stylesheet" type="text/css" />
+    <link href="/css/content.css" rel="stylesheet" type="text/css" />
+    <link href="/css/base.css" rel="stylesheet" type="text/css" />
+
+    <!-- Treeview css -->
+    <link href="/plugins/jstree/style.css" rel="stylesheet" type="text/css" />
+    <!--Morris Chart CSS -->
+    <link href="/plugins/morris/morris.css" rel="stylesheet" />
+    <!-- Sweet Alert css -->
+    <link href="/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <link href="/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <?php if (empty($css) === false): ?>
+    <?php foreach ($css as $c): ?>
+    <link href="<?php p($c); ?>" rel="stylesheet" type="text/css" />
+    <?php endforeach; ?>
+    <?php endif; ?>
+</head>
+
+<body>
+<!-- Begin page -->
+<div id="profile_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-size">
+            <div class="bg-picture card-box">
+                <div class="profile-info-name">
+                    <img src="/images/atlascoco.png" class="img-thumbnail" alt="profile-image">
+
+                    <div class="profile-info-detail">
+                        <h3 class="m-t-0 m-b-0">
+                            <?php p($info['user']['user_name']); ?>
+                            <?php p($info['user']['user_name_last']); ?>
+                        </h3>
+                        <p class="text-muted m-b-20"><i>
+                            <?php p((empty($info['agent']) === false) ? $info['agent']['agent_name'] : 'guest'); ?> /
+                            <?php p((empty($info['company']) === false) ? $info['company']['company_name'] : 'guest'); ?></i></p>
+                        <p>
+                            <?php p($info['user']['user_email']); ?>
+                        </p>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#profile_pw_layer">수정</button>
+                        <button type="button" class="btn btn-info waves-effect waves-light" data-dismiss="modal">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 프로필 레이어 -->
+<div id="profile_pw_layer" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="layerWrap small3" >
+        <div class="layerContents tabCont">
+            <div class="profile-info-name profile">
+                <div class="bbsTop">
+                    <h3>프로필</h3>
+                </div>
+                <ul class="tab">
+                    <li><a href="#" class="on">프로필</a></li>
+                    <li><a href="#" onclick="changeTab(2);">비밀번호</a></li>
+                </ul>
+
+                <div class="borderForm">
+                    <input type="hidden" value="<?php p($info['user']['user_idx']); ?>" id="userIdx"/>
+                    <input type="hidden" value="<?php p($info['user']['user_access']); ?>" id="userAccess"/>
+                    <input type="hidden" value="<?php p($info['user']['user_email']); ?>" id="userEmail"/>
+                    <input type="hidden" value="1" id="profile"/>
+                    <ul class="">
+                        <li>
+                            <ul class="length_2">
+                                <li>
+                                    <label for="userName">이름</label>
+                                    <input type="text" class="it bg" value="<?php p($info['user']['user_name']); ?>" id="userName" placeholder="이름을 입력하세요."/>
+                                </li>
+                                <li>
+                                    <label for="userNameLast"></label>
+                                    <input type="text" value="<?php p($info['user']['user_name_last']); ?>" id="userNameLast" placeholder="성을 입력하세요."/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label for="userTel">연락처</label>
+                            <input type="text" value="<?php p($info['user']['user_tel']); ?>" id="userTel" class="it bg"/>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bbsBottom">
+                    <div class="btnbox">
+                        <button href="#" class="btn01 changeUser" onclick="changeUser();"><span>수정</span></button>
+                        <button href="#" class="btn02 layerCancel" data-dismiss="modal"><span>닫기</span></button>
+                    </div>
+                </div>
+                <!--<div class="profile-info-detail">
+                    <h3 class="m-t-0 m-b-0">
+                        <?php p($info['user']['user_name']); ?>
+                        <?php p($info['user']['user_name_last']); ?>
+                    </h3>
+                    <p class="text-muted m-b-20"><i>
+                        <?php p((empty($info['agent']) === false) ? $info['agent']['agent_name'] : 'guest'); ?> /
+                        <?php p((empty($info['company']) === false) ? $info['company']['company_name'] : 'guest'); ?></i></p>
+                    <p>
+                        <?php p($info['user']['user_email']); ?>
+                    </p>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="">수정</button>
+                    <button type="button" class="btn btn-info waves-effect waves-light" data-dismiss="modal">취소</button>
+                </div>-->
+            </div>
+            <div class="profile">
+                <div class="bbsTop">
+                    <h3>프로필</h3>
+                </div>
+                <ul class="tab">
+                    <li><a href="#" onclick="changeTab(1);">프로필</a></li>
+                    <li><a href="#" class="on">비밀번호</a></li>
+                </ul>
+                <!-- 입력 폼 -->
+                <!-- 입력 폼 -->
+                <div class="borderForm tabContent">
+                    <ul class="">
+                        <!--<li>
+                            <label>현재 비밀번호</label>
+                            <input type="password" class="it pw bg" name=""/>
+                        </li>-->
+                        <li>
+                            <label>변경할 비밀번호</label>
+                            <input id="userPassword" type="password" class="it pw bg"  name=""/>
+                        </li>
+                        <li>
+                            <label>변경할 비밀번호 재입력</label>
+                            <input id="userPasswordChk" type="password" class="it  pw bg"  name=""/>
+                        </li>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 입력 폼 -->
+                <!-- 입력 폼 -->
+                <div class="bbsBottom">
+                    <div class="btnbox">
+                        <button href="#" class="btn01 changePassword" onclick="changePassword();"><span>수정</span></button>
+                        <button href="#" class="btn02 layerCancel" data-dismiss="modal"><span>닫기</span></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrap">
+
+    <div class="lnbWrap">
+        <div class="logo">
+            <h1><img src="/images/common/logo.png"  alt="AtlasCopco" /></h1>
+        </div>
+        <div class="lnbMenu">
+            <ul class="lnb" id="lnbBox">
+                <?php
+                if($info['user']['user_level'] === 127){
+                    $auth = 'admin';
+                }else if($info['userInfo']['is_agent']){
+                    $auth = 'agent';
+                }else if($info['userInfo']['is_company']){
+                    $auth = 'company';
+                }else{
+                    $auth = 'normal';
+                }
+//print_r($info);
+              ?>
+                <?php $index=1; foreach ($menu as $k => $m):?>
+                <li class="depth_1 <?php p(($m['active'] === true) ? 'on' : '') ?>
+                <?php p(($index === 3 && ( $auth === 'normal')) ? 'displayNone' : '') ?>
+                <?php p(($index === 4 && ( $auth === 'normal')) ? 'displayNone' : '') ?>
+                 <?php p(($index === 6 && ($auth === 'normal' || $auth === 'company')) ? 'displayNone' : '') ?>
+                ">
+                    <a class="icon_<?php p($index)?>" href="<?php p($m['link']); ?>">
+                        <span>
+                            <?php p($m['name']); ?>
+                        </span>
+                    </a>
+                </li>
+                <?php $index++; endforeach; ?>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container lnb">
+        <div class="header">
+            <div class="menu">
+                <a href="#" onclick="lnMenuToggle();return false;"><img src="/images/common/btn_menu_off.jpg" alt="메뉴" /></a>
+                <h3><?php p($title); ?></h3>
+            </div>
+
+            <div class="headerCont en">
+            </div>
+
+            <div class="util">
+                <a href="#" onclick="$(this).parent().toggleClass('on'); return false;" class="user">
+                    <span class="name en">Hello
+                    <strong> <?php p($info['user']['user_name'])?> </strong></span>
+                </a>
+                <div class="utilLayer" style=""><em></em>
+                    <ul class="">
+                        <li><a data-target="#profile_pw_layer" data-toggle="modal" href="#" class="pro">프로필</a></li>
+                        <li><a href="/logout" class="out">로그아웃</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>

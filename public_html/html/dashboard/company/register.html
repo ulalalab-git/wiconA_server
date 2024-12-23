@@ -1,0 +1,46 @@
+<div class="contents companyList">
+    <div class="contentsBody">
+        <div class="subCont">
+            <form id="uploadForm2" method="POST" enctype="multipart/form-data" action="#" class="borderForm">
+                <?php if (empty($company) === false): ?>
+                <input id="company" name="company" value="<?php p($company['company_idx']); ?>" type="hidden">
+                <?php endif; ?>
+                <ul class="">
+                    <li>
+                        <label for="name">기업명</label>
+                        <input class="it" id="name" name="name" required="" placeholder="기업명만 입력하십시오."  value="<?php p(((empty($company) === false) ? $company['company_name'] : '')); ?>" type="text">
+                    </li>
+                    <li>
+                        <label for="ceo">대표자명</label>
+                        <input class="it" id="ceo" name="ceo" required="" placeholder="이름" value="<?php p(((empty($company) === false) ? $company['company_ceo'] : '')); ?>" type="text">
+                    </li>
+                    <li>
+                        <label for="business">업종 및 생산품</label>
+                        <input class="it" id="business" name="business" required="" placeholder="예) 사출 - 자동차부품" value="<?php p(((empty($company) === false) ? $company['company_business'] : '')); ?>" type="text">
+                    </li>
+                    <li>
+                        <label for="tel">연락처</label>
+                        <input class="it" id="tel" name="tel" required="" placeholder="- 없이 번호만 입력하십시오." value="<?php p(((empty($company) === false) ? $company['company_tel'] : '')); ?>" type="text">
+                    </li>
+                    <li>
+                        <label for="">주소</label>
+                        <input class="it zip" id="zip" name="zip" required="" placeholder="우편번호" value="<?php p(((empty($company) === false) ? $company['company_zip'] : '')); ?>" type="text">
+                        <input class="it address" id="address" name="address" required="" placeholder="주소" value="<?php p(((empty($company) === false) ? $company['company_address'] : '')); ?>" type="text">
+                        <input class="it address_detail" id="address_detail" name="address_detail" required="" placeholder="상세 주소" value="<?php p(((empty($company) === false) ? $company['company_address_detail'] : '')); ?>" type="text">
+                    </li>
+                </ul>
+
+                <div class="bbsBottom">
+                    <div class="btnbox center">
+                        <?php if (empty($company) === false): ?>
+                        <button class="btn01 big" type="submit" id="companyModify"> 수정 </button>
+                        <?php else: ?>
+                        <button class="btn01 big" type="submit" id="companyRegister"> 추가 </button>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+

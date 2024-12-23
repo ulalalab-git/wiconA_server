@@ -1,0 +1,341 @@
+<div id="user_search_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap small3" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>유저 추가</h3>
+                    <div class="searchkBox">
+                        <select class="" id="user_set_type">
+                            <option value="email">이메일</option>
+                            <option value="name">이름</option>
+                            <option value="tel">연락처</option>
+                        </select>
+                        <input type="hidden" id="user_search_page" value="1">
+                        <input class="it" id="user_set_keyword" placeholder="검색할 내용을 입력하십시오." type="text">
+                        <button class="btn searchButton" form="user" about="insert" type="search">검색</button>
+                    </div>
+                </div>
+                <div id="user_search_result">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="user_manage_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap small3" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>유저 삭제</h3>
+                    <div class="searchkBox">
+                        <select class="" id="user_manage_type">
+                            <option value="email">이메일</option>
+                            <option value="name">이름</option>
+                            <option value="tel">연락처</option>
+                        </select>
+                        <input type="hidden" id="user_manage_page" value="1">
+                        <input class="it" id="user_manage_keyword" placeholder="검색할 내용을 입력하십시오." type="text" value="">
+                        <button class="btn searchManageButton" form="user" type="search" about="delete">검색</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="user_manage_result">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="device_search_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap small3" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>장비 추가</h3>
+                    <div class="searchkBox">
+                        <select class="" id="device_set_type">
+                            <option value="name">이름</option>
+                            <option value="serial">시리얼</option>
+                        </select>
+                        <input type="hidden" id="device_search_page" value="1">
+                        <input class="it" id="device_set_keyword" placeholder="검색할 내용을 입력하십시오." type="text">
+                        <button class="btn searchButton" form="device" about="insert" type="search">검색</button>
+                    </div>
+                </div>
+                <div id="device_search_result">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="device_manage_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap small3" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>장비 삭제</h3>
+                    <div class="searchkBox">
+                        <select class="" id="device_manage_type">
+                            <option value="name">이름</option>
+                            <option value="serial">시리얼</option>
+                        </select>
+                        <input type="hidden" id="device_manage_page" value="1">
+                        <input class="it" id="device_manage_keyword" placeholder="검색할 내용을 입력하십시오." type="text" value="">
+                        <button class="btn searchManageButton" form="device" type="search" about="delete">검색</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="device_manage_result">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contents companyDetail">
+    <div class="contentsBody">
+        <input type="hidden" id="company" value="<?php p($company['company_idx']); ?>"/>
+        <form role="search" action="/dashboard/company/detail/<?php p($company['company_idx']); ?>" method="get">
+        <div class="subCont">
+
+            <div class="borderView">
+                <table cellpadding="0" cellspacing="0" class="" >
+                    <colgroup>
+                        <col width="15%"/><col width=""/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="row">기업명</th>
+                        <td>
+                            <?php p($company['company_name']); ?>
+                        </td>
+                        <th scope="row">대표자명</th>
+                        <td>
+                            <?php p($company['company_ceo']); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">업종 및 생산품</th>
+                        <td>
+                            <?php p($company['company_business']); ?>
+                        </td>
+                        <th scope="row">연락처</th>
+                        <td>
+                            <?php p($company['company_tel']); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">주소</th>
+                        <td colspan="3">
+                            <?php p($company['company_zip']); ?> <?php p($company['company_address']); ?> <?php p($company['company_address_detail']); ?>
+                        </td>
+                    </tr>
+                    <tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        <div class="subCont mt100">
+            <div class="bbsTop">
+                <h3>회원관리</h3>
+                <div class="searchkBox">
+                    <select class="" name="user_type">
+                        <option value="email" <?php p((empty($user['search']['type']) === false ? ($user['search']['type'] === 'email' ? 'selected' : '') : '')); ?>>이메일</option>
+                        <option value="name" <?php p((empty($user['search']['type']) === false ? ($user['search']['type'] === 'name' ? 'selected' : '') : '')); ?>>이름</option>
+                        <option value="tel" <?php p((empty($user['search']['type']) === false ? ($user['search']['type'] === 'tel' ? 'selected' : '') : '')); ?>>연락처</option>
+                    </select>
+                    <input class="it" placeholder="검색할 내용을 입력하십시오." name="user_keyword" type="text" value="<?php p((empty($user['search']['keyword']) === false ? $user['search']['keyword'] : '')); ?>">
+                    <button type="submit" class="btn btn-default">검색</button>
+                </div>
+            </div>
+
+            <div class="borderList">
+                <table cellpadding="0" cellspacing="0" class="list" >
+                    <colgroup>
+                        <col width="25%"/><col width="25%"/><col width="25%"/><col width="25%"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th scope="col">이메일</th>
+                        <th scope="col">이름</th>
+                        <th scope="col">연락처</th>
+                        <th scope="col">승인여부</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if (empty($user['lists']) === false): ?>
+                    <?php foreach ($user['lists'] as $list): ?>
+                    <tr>
+                        <td><?php p($list['user_email']); ?></td>
+                        <td><span><?php p($list['user_name']); ?> <?php p($list['user_name_last']); ?></span></td>
+                        <td><?php p($list['user_tel']); ?></td>
+                        <td><?php p($list['user_access']); ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="4"  class="empty"> empty </td>
+                    </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btnbox text-right  <?php p(( $info['user']['user_level'] === 127 || $info['userInfo']['is_agent'] ) ? '' : 'displayNonePri') ?>">
+                <a class="companyUserSearch btn01" company="<?php p($company['company_idx']); ?>" data-target="#user_search_modal" data-toggle="modal">
+                    <span company="<?php p($company['company_idx']); ?>">유저 추가</span>
+                </a>
+                <a class="companyUserRemove btn02" form="user" company="<?php p($company['company_idx']); ?>" data-target="#user_manage_modal" data-toggle="modal">
+                    <span form="user" company="<?php p($company['company_idx']); ?>">유저 삭제</span>
+                </a>
+            </div>
+
+            <?php if ($user['paginator']['lastNum'] > 1): ?>
+            <?php
+                $linkUrl = '?';
+                if (empty($user['search']['type']) === false) {
+                    $linkUrl .= '&user_type=' . $user['search']['type'];
+                }
+                if (empty($user['search']['keyword']) === false) {
+                    $linkUrl .= '&user_keyword=' . $user['search']['keyword'];
+                }
+            ?>
+            <div class="paging">
+                <span class="pagingBox">
+                    <?php if ($user['paginator']['totalPage'] > 10): ?>
+                        <a href="<?php p($linkUrl); ?>&user_page=1; ?>" class="btn btn_1"><em></em></a>
+                    <?php endif; ?>
+                    <?php if ($user['paginator']['page'] > 1 && $user['paginator']['prevPage'] >= 1): ?>
+                        <a href="<?php p($linkUrl); ?>&user_page=<?php p($user['paginator']['prevPage']); ?>" class="btn btn_2"><em></em></a>
+                    <?php endif; ?>
+                    <span class="num">
+                        <?php for ($i = $user['paginator']['startNum']; $i < ($user['paginator']['lastNum'] + 1); ++$i): ?>
+                        <?php if($i !== $user['paginator']['page']): ?>
+                        <a href='<?php p($linkUrl); ?>&user_page=<?php p($i); ?>'><?php p($i); ?></a>
+                        <?php endif; ?>
+                        <?php if($i === $user['paginator']['page']): ?>
+                        <strong><?php p($i); ?></strong>
+                        <?php endif; ?>
+                        <?php endfor; ?>
+                    </span>
+                    <?php if ($user['paginator']['nextPage'] > 1 && $user['paginator']['lastPage'] > $user['paginator']['page']): ?>
+                        <a href="<?php p($linkUrl); ?>&user_page=<?php p($user['paginator']['nextPage']); ?>" class="btn btn_3"><em></em></a>
+                    <?php endif; ?>
+                    <?php if ($paginator['totalPage'] > 10): ?>
+                        <a href="<?php p($linkUrl); ?>&user_page=<?php p($user['paginator']['lastPage']); ?>" class="btn btn_4"><em></em></a>
+                    <?php endif; ?>
+                </span>
+            </div>
+            <?php endif; ?>
+        </div>
+
+
+
+        <!-- 장비관리 -->
+        <div class="subCont  mt100">
+
+            <div class="bbsTop">
+                <h3>장비관리</h3>
+                <div class="searchkBox">
+                    <select class="" name="device_type">
+                        <option value="name" <?php p((empty($device['search']['type']) === false ? ($device['search']['type'] === 'name' ? 'selected' : '') : '')); ?>>이름</option>
+                        <option value="serial" <?php p((empty($device['search']['type']) === false ? ($device['search']['type'] === 'serial' ? 'selected' : '') : '')); ?>>시리얼</option>
+                    </select>
+                    <input class="it" placeholder="검색할 내용을 입력하십시오." name="device_keyword" type="text" value="<?php p((empty($device['search']['keyword']) === false ? $device['search']['keyword'] : '')); ?>">
+                    <button type="submit" class="btn btn-default">검색</button>
+                </div>
+            </div>
+
+            <!-- 리스트 -->
+            <div class="borderList">
+                <table cellpadding="0" cellspacing="0" class="list" >
+                    <colgroup>
+                        <col width="20%"/><col width="20%"/><col width="20%"/><col width="20%"/><col width="20%"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th scope="col">장비명</th>
+                        <th scope="col">시작일</th>
+                        <th scope="col">소프트웨어버전</th>
+                        <th scope="col">하트웨어 버전</th>
+                        <th scope="col">서버정보</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (empty($device['lists']) === false): ?>
+                        <?php foreach ($device['lists'] as $list): ?>
+                        <tr>
+                            <td><span><?php p($list['device_name']); ?></span></td>
+                            <td><?php p($list['device_serial']); ?></td>
+                            <td><?php p($list['device_sw_version']); ?></td>
+                            <td><?php p($list['device_hw_version']); ?></td>
+                            <td><?php p($list['device_server']); ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <?php else: ?>
+                        <tr>
+                            <td colspan="5" class="empty"> empty </td>
+                        </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="btnbox text-right ">
+                <a class="companyDeviceSearch btn01" company="<?php p($company['company_idx']); ?>" data-target="#device_search_modal" data-toggle="modal">
+                    <span company="<?php p($company['company_idx']); ?>">장비 추가</span>
+                </a>
+                <a class="companyDeviceRemove btn02" form="device" company="<?php p($company['company_idx']); ?>" data-target="#device_manage_modal" data-toggle="modal">
+                    <span form="device" company="<?php p($company['company_idx']); ?>">장비 삭제</span>
+                </a>
+            </div>
+            <!-- 리스트 -->
+            <?php if ($device['paginator']['lastNum'] > 1): ?>
+            <?php
+                $linkUrl = '?';
+                if (empty($device['search']['type']) === false) {
+                    $linkUrl .= '&device_type=' . $device['search']['type'];
+                }
+                if (empty($device['search']['keyword']) === false) {
+                    $linkUrl .= '&device_keyword=' . $device['search']['keyword'];
+                }
+            ?>
+            <div class="paging">
+                <span class="pagingBox">
+                    <?php if ($device['paginator']['totalPage'] > 10): ?>
+                        <a href="<?php p($linkUrl); ?>&device_page=1; ?>" class="btn btn_1"><em></em></a>
+                    <?php endif; ?>
+                    <?php if ($device['paginator']['page'] > 1 && $device['paginator']['prevPage'] >= 1): ?>
+                        <a href="<?php p($linkUrl); ?>&device_page=<?php p($device['paginator']['prevPage']); ?>" class="btn btn_2"><em></em></a>
+                    <?php endif; ?>
+                    <span class="num">
+                        <?php for ($i = $device['paginator']['startNum']; $i < ($device['paginator']['lastNum'] + 1); ++$i): ?>
+                        <?php if($i !== $device['paginator']['page']): ?>
+                        <a href='<?php p($linkUrl); ?>&device_page=<?php p($i); ?>'><?php p($i); ?></a>
+                        <?php endif; ?>
+                        <?php if($i === $device['paginator']['page']): ?>
+                        <strong><?php p($i); ?></strong>
+                        <?php endif; ?>
+                        <?php endfor; ?>
+                    </span>
+                    <?php if ($device['paginator']['nextPage'] > 1 && $device['paginator']['lastPage'] > $device['paginator']['page']): ?>
+                        <a href="<?php p($linkUrl); ?>&device_page=<?php p($paginator['nextPage']); ?>" class="btn btn_3"><em></em></a>
+                    <?php endif; ?>
+                    <?php if ($device['paginator']['totalPage'] > 10): ?>
+                        <a href="<?php p($linkUrl); ?>&device_page=<?php p($device['paginator']['lastPage']); ?>" class="btn btn_4"><em></em></a>
+                    <?php endif; ?>
+                </span>
+            </div>
+            <?php endif; ?>
+        </div>
+        </form>

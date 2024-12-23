@@ -1,0 +1,107 @@
+<div class="contents companyList">
+    <div class="contentsBody">
+        <div class="subCont" id="">
+            <div class="bbsTop">
+                <div class="btnbox  ">
+                    <button class="btn01 icon_plus" onclick="javascript:location.href='/dashboard/device/register'"> <span>장비 추가</span> </button>
+                </div>
+                <form class="navbar-form navbar-right" role="search" action="/dashboard/device/lists" method="get">
+                    <input type="hidden" id="device" value="">
+                    <div class="searchkBox">
+                        <select class="" name="type">
+                            <option value="name" <?php p((empty($search['type']) === false ? ($search['type'] === 'name' ? 'selected' : '') : '')); ?>>이름</option>
+                            <option value="serial" <?php p((empty($search['type']) === false ? ($search['type'] === 'serial' ? 'selected' : '') : '')); ?>>시리얼</option>
+                        </select>
+                        <input class="it" placeholder="검색할 내용을 입력하십시오." name="keyword" type="text" value="<?php p((empty($search['keyword']) === false ? $search['keyword'] : '')); ?>">
+                        <button type="submit" class="btn">검색</button>
+                    </div>
+                </form>
+            </div>
+            <div class="borderList">
+                <table class="list" cellpadding="0" cellspacing="0">
+                    <colgroup>
+                        <col width="14%"/><col width="14%"/><col width="14%"/>
+                        <col width="14%"/><col width="14%"/><col width="14%"/><col width=""/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <!-- <th><input id="options" class="checkbox-warning chkItem" type="checkbox"></th> -->
+                        <th scope="col">장비명</th>
+                        <th scope="col">시리얼</th>
+                        <th scope="col">소프트웨어 버전</th>
+                        <th scope="col">하드웨어 버전</th>
+                        <th scope="col">서버 정보</th>
+                        <th scope="col">설정</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if (empty($lists) === false): ?>
+                    <?php foreach ($lists as $list): ?>
+                    <?php if ($list['device_delete_date'] === '0000-00-00 00:00:00'): ?>
+                        <tr>
+                            <!--
+                            <td>
+                                <input name="options" value="<?php p($list['device_idx']); ?>" class="checkbox-warning" type="checkbox">
+                            </td>
+                            -->
+                            <td><a href="/dashboard/device/detail/<?php p($list['device_idx']); ?>" style="font-weight:bold; color:#fff;"><?php p($list['device_name']); ?></a></td>
+                            <td><?php p($list['device_serial']); ?></td>
+                            <td><?php p($list['device_sw_version']); ?></td>
+                            <td><?php p($list['device_hw_version']); ?></td>
+                            <td><?php p($list['device_server']); ?></td>
+                            <td><?php p($list['device_create_date']); ?></td>
+                            <td>
+                                <button class="btn11" onclick="javascript:location.href='/dashboard/device/modify/<?php p($list['device_idx']); ?>'"><span>수정</span></button>
+                                <button class="btn13 deviceRestore" ><span device="<?php p($list['device_idx']); ?>" restore=0 >삭제</span></button>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="7"> empty </td>
+                    </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+            <?php if ($paginator['lastNum'] > 1): ?>
+            <?php
+                   $linkUrl = '?';
+                   if (empty($search['type']) === false) {
+                       $linkUrl .= '&type=' . $search['type'];
+                   }
+                   if (empty($search['keyword']) === false) {
+                       $linkUrl .= '&keyword=' . $search['keyword'];
+                   }
+               ?>
+            <div class="paging">
+                   <span class="pagingBox">
+                       <?php if ($paginator['totalPage'] > 10): ?>
+                           <a href="<?php p($linkUrl); ?>&page=1; ?>" class="btn btn_1"><em></em></a>
+                       <?php endif; ?>
+                       <?php if ($paginator['page'] > 1 && $paginator['prevPage'] >= 1): ?>
+                           <a href="<?php p($linkUrl); ?>&page=<?php p($paginator['prevPage']); ?>" class="btn btn_2"><em></em></a>
+                       <?php endif; ?>
+                       <span class="num">
+                           <?php for ($i = $paginator['startNum']; $i < ($paginator['lastNum'] + 1); ++$i): ?>
+                           <?php if($i !== $paginator['page']): ?>
+                           <a href='<?php p($linkUrl); ?>&page=<?php p($i); ?>'><?php p($i); ?></a>
+                           <?php endif; ?>
+                           <?php if($i === $paginator['page']): ?>
+                           <strong><?php p($i); ?></strong>
+                           <?php endif; ?>
+                           <?php endfor; ?>
+                       </span>
+                       <?php if ($paginator['nextPage'] > 1 && $paginator['lastPage'] > $paginator['page']): ?>
+                           <a href="<?php p($linkUrl); ?>&page=<?php p($paginator['nextPage']); ?>" class="btn btn_3"><em></em></a>
+                       <?php endif; ?>
+                       <?php if ($paginator['totalPage'] > 10): ?>
+                           <a href="<?php p($linkUrl); ?>&page=<?php p($paginator['lastPage']); ?>" class="btn btn_4"><em></em></a>
+                       <?php endif; ?>
+                   </span>
+            </div>
+            <?php endif; ?>
+        </div><!-- end col -->
+

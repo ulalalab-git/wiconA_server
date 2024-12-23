@@ -1,0 +1,41 @@
+<div class="contents companyList">
+    <div class="contentsBody">
+        <div class="subCont" id="">
+            <form id="uploadForm2" method="POST" enctype="multipart/form-data" action="#">
+                <?php if (empty($device) === false): ?>
+                <input id="device" name="device" value="<?php p($device['device_idx']); ?>" type="hidden">
+                <?php endif; ?>
+                <div class="borderForm">
+                    <div class="form-group">
+                        <label for="name">장비명</label>
+                        <input class="form-control" id="name" name="name" required="" placeholder="장비명"  value="<?php p(((empty($device) === false) ? $device['device_name'] : '')); ?>" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="serial">시리얼</label>
+                        <input class="form-control" id="serial" name="serial" required="" placeholder="시리얼"  value="<?php p(((empty($device) === false) ? $device['device_serial'] : '')); ?>" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="sw_version">소프트웨어 버전</label>
+                        <input class="form-control" id="sw_version" name="sw_version" required="" placeholder="소프트웨어 버전" value="<?php p(((empty($device) === false) ? $device['device_sw_version'] : '')); ?>" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="hw_version">하드웨어 버전</label>
+                        <input class="form-control" id="hw_version" name="hw_version" required="" placeholder="하드웨어 버전" value="<?php p(((empty($device) === false) ? $device['device_hw_version'] : '')); ?>" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="server">서버 정보</label>
+                        <input class="form-control" id="server" name="server" required="" placeholder="서버 정보" value="<?php p(((empty($device) === false) ? $device['device_server'] : '')); ?>" type="text">
+                    </div>
+                    <div class="form-group bbsBottom">
+                        <div class="btnbox center">
+                            <?php if (empty($device) === false): ?>
+                            <button class="btn01 big" type="submit" id="deviceModify"> <span>수정</span> </button>
+                            <?php else: ?>
+                            <button class="btn01 big" type="submit" id="deviceRegister"> <span>추가</span> </button>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!-- end col -->
+

@@ -1,0 +1,270 @@
+<!--<div id="user_search_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog width80per" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="model-search-item">
+                    <h5 class="navbar-left">유저 추가</h5>
+                    <div class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <select class="form-control" id="user_search_type">
+                                <option value="email">이메일</option>
+                                <option value="name">이름</option>
+                                <option value="tel">연락처</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" id="user_search_page" value="1">
+                            <input class="form-control" id="user_search_keyword" placeholder="검색할 내용을 입력하십시오." type="text" value="">
+                        </div>
+                        <button class="btn btn-default searchButton" form="user" type="search">검색</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="user_search_result">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary appendButton" form="user"> 등록 </button>
+                <button type="button" class="btn btn-secondary formClear" data-dismiss="modal"> 닫기 </button>
+            </div>
+        </div>
+    </div>
+</div>-->
+<div id="user_search_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap small3" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>유저 추가</h3>
+                    <div class="searchkBox">
+                        <select class="" id="user_set_type">
+                            <option value="email">이메일</option>
+                            <option value="name">이름</option>
+                            <option value="tel">연락처</option>
+                        </select>
+                        <input type="hidden" id="user_search_page" value="1">
+                        <input class="it" id="user_set_keyword" placeholder="검색할 내용을 입력하십시오." type="text" value="">
+                        <button class="btn searchButton" form="user" about="insert" type="search">검색</button>
+                    </div>
+                </div>
+                <div id="user_search_result">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="user_manage_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap small3" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>유저 삭제</h3>
+                    <div class="searchkBox">
+                        <select class="" id="user_manage_type">
+                            <option value="email">이메일</option>
+                            <option value="name">이름</option>
+                            <option value="tel">연락처</option>
+                        </select>
+                        <input type="hidden" id="user_manage_page" value="1">
+                        <input class="it" id="user_manage_keyword" placeholder="검색할 내용을 입력하십시오." type="text" value="">
+                        <button class="btn searchManageButton" form="user" type="search" about="delete">검색</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="user_manage_result">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="company_search_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap small3" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>회사 추가</h3>
+                    <div class="searchkBox">
+                        <select id="company_set_type">
+                            <option value="name">이름</option>
+                            <option value="ceo">대표</option>
+                        </select>
+                        <input type="hidden" id="company_search_page" value="1">
+                        <input class="it" id="company_set_keyword" placeholder="검색할 내용을 입력하십시오." type="text" value="">
+                        <button class="btn searchButton" form="company" type="search" about="insert">검색</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div id="company_search_result">
+                </div>
+            </div><!--
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary appendButton" form="company"> 등록 </button>
+                <button type="button" class="btn btn-secondary formClear" data-dismiss="modal"> 닫기 </button>
+            </div>-->
+        </div>
+    </div>
+</div>
+
+<div id="company_manage_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap small3" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>회사 삭제</h3>
+                    <div class="searchkBox">
+                        <select id="company_manage_type">
+                            <option value="name">이름</option>
+                            <option value="ceo">대표</option>
+                        </select>
+                        <input type="hidden" id="company_manage_page" value="1">
+                        <input class="it" id="company_manage_keyword" placeholder="검색할 내용을 입력하십시오." type="text" value="">
+                        <button class="btn searchManageButton" form="company" type="search" about="delete">검색</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div id="company_manage_result">
+
+                </div>
+            </div><!--
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary removeButton" form="company"> 삭제 </button>
+                <button type="button" class="btn btn-secondary formClear" data-dismiss="modal"> 닫기 </button>
+            </div>-->
+        </div>
+    </div>
+</div>
+
+<div class="contents companyList" id="">
+    <div class="contentsBody">
+        <div class="subCont">
+            <div class="bbsTop  ">
+                <div class="btnbox <?php p(( $info['user']['user_level'] === 127) ? '' : 'displayNonePri') ?> ">
+                    <div class="form-group">
+                        <button class="btn01 icon_plus" onclick="javascript:location.href='/dashboard/agent/register'"> <span>대리점 추가</span> </button>
+                    </div>
+                </div>
+                <!--<input type="hidden" id="agent" value="">-->
+                <div class="searchkBox ">
+                    <form class="" role="search" action="/dashboard/agent/lists" method="get">
+                        <select class="" name="type">
+                            <option value="name" <?php p((empty($search['type']) === false ? ($search['type'] === 'name' ? 'selected' : '') : '')); ?>>이름</option>
+                            <option value="tel" <?php p((empty($search['type']) === false ? ($search['type'] === 'tel' ? 'selected' : '') : '')); ?>>연락처</option>
+                        </select>
+                        <input class="it" placeholder="검색할 내용을 입력하십시오." name="keyword" type="text" value="<?php p((empty($search['keyword']) === false ? $search['keyword'] : '')); ?>">
+                        <button type="submit" class="btn"><span>검색</span></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="borderList">
+                <table class="list" cellpadding="0" cellspacing="0">
+                    <colgroup>
+                        <col width="2%"/><col width="14%"/><col width="6%"/><col width="15%"/><col width="17%"/>
+                        <col width="9%"/><col width=""/><col width="16%"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th><input id="options" class="checkbox-warning chkItem" type="checkbox"></th>
+                        <th>이메일</th><!--회사-->
+                        <th>업종</th>
+                        <th>대표</th>
+                        <th>연락처</th>
+                        <th>승인여부</th>
+                        <!--<th>유저</th>-->
+                        <th>설정</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if (empty($lists) === false): ?>
+                        <?php foreach ($lists as $list): ?>
+                        <tr>
+                            <td>
+                                <input name="options" value="<?php p($list['agent_idx']); ?>" class="checkbox-warning" type="checkbox">
+                            </td>
+                            <td><a href="/dashboard/agent/detail/<?php p($list['agent_idx']); ?>"><?php p($list['agent_name']); ?></a></td>
+                            <td><?php p($list['agent_business']); ?></td>
+                            <td><?php p($list['agent_ceo']); ?></td>
+                            <td><?php p($list['agent_tel']); ?></td>
+                            <td><?php p($list['agent_access']); ?></td>
+                            <!--<td><?php p($list['agent_user_cnt']); ?></td>-->
+                            <td><?php p($list['agent_create_date']); ?></td>
+                            <td>
+                                <button class="btn11" onclick="javascript:location.href='/dashboard/agent/modify/<?php p($list['agent_idx']); ?>'">수정</button>
+                                <!--<button class="btn12 agentUserSearch" agent="<?php p($list['agent_idx']); ?>" data-target="#user_search_modal" data-toggle="modal">유저 추가</button>
+                                <button class="btn13 agentUserRemove" form="user" agent="<?php p($list['agent_idx']); ?>" data-target="#user_manage_modal" about="delete" data-toggle="modal">유저 삭제</button>
+                                <button class="btn12 agentCompanySearch" agent="<?php p($list['agent_idx']); ?>" data-target="#company_search_modal" data-toggle="modal">회사 추가</button>
+                                <button class="btn13 agentCompanyRemove" form="company" agent="<?php p($list['agent_idx']); ?>" data-target="#company_manage_modal" data-toggle="modal" about="delete">회사 삭제</button>-->
+                                <?php if ($list['agent_delete_date'] === '0000-00-00 00:00:00'): ?>
+                                <button class="btn13 agentRemove" agent="<?php p($list['agent_idx']); ?>">삭제</button>
+                                <?php else: ?>
+                                <button class="btn13 agentRestore" agent="<?php p($list['agent_idx']); ?>">삭제 해제</button>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="8"> empty </td>
+                    </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="bbsBottom">
+                <div class="btnbox <?php p((  $info['user']['user_level'] === 127 ) ? '' : 'displayNonePri') ?> ">
+                    <button class="btn01" id="agentAccess"> <span>승인</span> </button>
+                    <button class="btn02" id="agentDeny"> <span>거부</span> </button>
+                </div>
+            </div>
+
+            <?php if ($paginator['lastNum'] > 1): ?>
+                <?php
+                            $linkUrl = '?';
+                            if (empty($search['type']) === false) {
+                                $linkUrl .= '&type=' . $search['type'];
+                            }
+                            if (empty($search['keyword']) === false) {
+                                $linkUrl .= '&keyword=' . $search['keyword'];
+                            }
+                ?>
+            <div class="paging">
+                <span class="pagingBox">
+                <?php if ($paginator['totalPage'] > 10): ?>
+                <a href="<?php p($linkUrl); ?>&page=1; ?>" class="btn btn_1"><em></em></a>
+                <?php endif; ?>
+                <?php if ($paginator['page'] > 1 && $paginator['prevPage'] >= 1): ?>
+                <a href="<?php p($linkUrl); ?>&page=<?php p($paginator['prevPage']); ?>" class="btn btn_2"><em></em></a>
+                <?php endif; ?>
+                <span class="num">
+                           <?php for ($i = $paginator['startNum']; $i < ($paginator['lastNum'] + 1); ++$i): ?>
+                    <?php if($i !== $paginator['page']): ?>
+                    <a href='<?php p($linkUrl); ?>&page=<?php p($i); ?>'><?php p($i); ?></a>
+                    <?php endif; ?>
+                    <?php if($i === $paginator['page']): ?>
+                    <strong><?php p($i); ?></strong>
+                    <?php endif; ?>
+                    <?php endfor; ?>
+                       </span>
+                <?php if ($paginator['nextPage'] > 1 && $paginator['lastPage'] > $paginator['page']): ?>
+                <a href="<?php p($linkUrl); ?>&page=<?php p($paginator['nextPage']); ?>" class="btn btn_3"><em></em></a>
+                <?php endif; ?>
+                <?php if ($paginator['totalPage'] > 10): ?>
+                <a href="<?php p($linkUrl); ?>&page=<?php p($paginator['lastPage']); ?>" class="btn btn_4"><em></em></a>
+                <?php endif; ?>
+                </span>
+            </div>
+            <?php endif; ?>
+

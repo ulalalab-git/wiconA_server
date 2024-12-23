@@ -1,0 +1,195 @@
+.content .bbsTop{height: 60px;}
+/*콘텐츠 padding없애기*/
+.content-page .content{padding: 0px;}
+/*콘테이너 padding 없애기*/
+.container{padding: 0px;}
+/*콘텐츠 크게 잡는 부분 -> 아마 common쪽일듯*/
+.contentsBody{position: relative; min-height: calc(100vh - 73px); padding: 30px 30px 130px;}
+/*유저관리 wrap width 잡기*/
+.companyList .contentsBody{min-width: 100%;}
+
+
+/*콘텐츠 버튼, 검색 div*/
+.bbsTop {height: 60px;}
+.bbsTop > div	{float:right; }
+.bbsTop > div:first-child{float: left;}
+/*select , 검색 div*/
+.searchkBox form * {margin-left: 4px; vertical-align: top;}
+/*select 스타일*/
+select {border: 1px solid #495565; border-radius: 3px; color: #fff; padding: 0 25px 0 10px; height: 35px; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: url(../images/common/select_bul.gif) no-repeat 100% 50% #384350; -webkit-box-shadow: none; box-shadow: none; -webkit-transition: all 300ms linear; -moz-transition: all 300ms linear; -o-transition: all 300ms linear; -ms-transition: all 300ms linear; transition: all 300ms linear;}
+
+select:focus	{border: 1px solid #1389d5; -webkit-box-shadow: none;  box-shadow: none;  outline: 0 !important;  color: #ffffff;}
+select::-ms-expand {display: none;}
+input[type=text],input[type=password]			{padding-left:7px; vertical-align:middle; border:1px solid #495565; background:#384350; color:#b3b5c0; border-radius:3px; height:35px; }
+input[type=text]:focus,input[type=password]:focus	{border: 1px solid #5c6776; background:#48515c; -webkit-box-shadow: none;  box-shadow: none;  outline: 0 !important;  color: #ffffff;}
+input[type=text]:focus,input[type=password]:focus	{border: 1px solid #009cff; background:#48515c; -webkit-box-shadow: none;  box-shadow: none;  outline: 0 !important;  color: #ffffff;}
+input[type=text].on,input[type=password].on			{color: #ffffff;}
+input[type=text]:active,input[type=password]:active	{border: 1px solid #009cff; background:#48515c; -webkit-box-shadow: none;  box-shadow: none;  outline: 0 !important;  color: #ffffff;}
+
+.searchkBox input.it			                {width:209px;}
+.searchkBox button.btn						{display:inline-block; height:35px; margin:0 0 0 4px; padding:0 10px;border:1px solid #aebccc; background:#aebccc; color:#364151; border-radius:2px; }
+.searchkBox button.btn.on,
+.searchkBox button.btn:hover				{background:#889bb2; }
+.searchkBox button.btn span					{display:inline-block; padding:3px 0 0; margin:0;  font-size:15px; line-height:15px;  font-family:'Noto Sans', sans-serif; }
+.searchkBox button.btn2						{display:inline-block; height:33px; margin:0 0 0 4px; padding:0 10px;border:1px solid #aebccc; background:#fff; color:#364151; border-radius:2px; box-shadow:0 0 10px #1d232b;  }
+.searchkBox button.btn2.on,
+.searchkBox button.btn2:hover				{background:#889bb2; }
+.searchkBox button.btn2 span				{display:inline-block; padding:3px 0 0; margin:0;  font-size:15px; line-height:15px;  font-family:'Noto Sans', sans-serif; }
+
+/*전체적 버튼 style*/
+.btnbox button{display: inline-block; margin: 0 2px; min-width: 80px; height: 37px; border-radius: 3px; font-size: 15px; color: #fff; text-align: center; padding: 0 17px;}
+.btnbox button span{display: inline-block; padding: 0; font-family:'Noto Sans bold', sans-serif; }
+.btnbox button.big						{margin:0 2px; min-width:105px; height:46px; font-size:16px; color:#fff; text-align:center; padding:0 20px;  }
+.btnbox button.big span					{}
+.btnbox button.min						{margin:0 2px; min-width:30px; height:28px; font-size:13px; color:#fff; text-align:center; padding:0 13px;   }
+.btnbox button.min span					{padding:4px 0 0; font-family:'Noto Sans', sans-serif;}
+.btnbox button.form						{height:37px; padding:0 10px; min-width:50px; vertical-align:middle; }
+.btnbox button.form span					{padding:7px 0 0; }
+.btnbox button.full						{margin:0 2px; width:100%; height:46px; font-size:16px; color:#fff; text-align:center; padding:0;   }
+.btnbox button.full span					{padding:10px 0 0; font-family:'Noto Sans', sans-serif;}
+.btnbox button.icon_plus span{padding-left: 20px; background: url("../images/contents/btn_icon_plus.png") no-repeat 0 5px;}
+.btnbox button.icon_minus span			{padding-left:16px; background:url(../images/contents/btn_bg_minus.gif) no-repeat 0 13px; }
+.btnbox button.icon_search span			{padding-left:16px; background:url(../images/contents/icon_search.png) no-repeat 0 13px; }
+.btnbox .btn01						{background:#009cff; }
+.btnbox .btn01.on,
+.btnbox .btn01:hover				{background:#087ec9; color: #fff;}
+.btnbox .btn02						{background:#6a7c91; }
+.btnbox .btn02.on,
+.btnbox .btn02:hover				{background:#52657b; }
+.btnbox .btn03						{background:#ffb606; }
+.btnbox .btn03.on,
+.btnbox .btn03:hover				{background:#f1ac07; }
+.btnbox .btn04						{background:#009cff; }
+.btnbox .btn04.on,
+.btnbox .btn04:hover				{background:#0cd479; }
+.btnbox .btn05						{background:#0fe583; }
+.btnbox .btn05.on,
+.btnbox .btn05:hover				{background:#068ee4; }
+.btnbox .btn06						{background:#f15159; }
+.btnbox .btn06.on,
+.btnbox .btn06:hover				{background:#df4a52; }
+
+/*유저관리 테이블스타일*/
+.contBox + .borderList				{margin-top:-10px; position:relative; z-index:2;}
+.borderList						{padding:0 0 35px 0; background:#2a313b;   overflow:hidden;}
+.borderList table					{width:100%; }
+.borderList table.list				{margin-left:-1px; }
+.borderList table.list thead th		{height:28px; padding:8px 10px 8px 14px; text-align:left; border-bottom:1px solid #353c48; color:#fff; font-family:'Noto Sans bold', sans-serif;  }
+.borderList table.list tbody td		{height:28px; padding:5px 10px 5px 14px; text-align:left; border-bottom:1px solid #353c48; border-left:1px solid #353c48; color:#adacb2; font-size:14.5px;  }
+.borderList table.list thead th.tac,
+.borderList table.list tbody td.tac	{padding:5px; text-align:center; vertical-align:middle; }
+.borderList table.list tbody td input.chk	{height:14px; margin:5px;}
+.borderList table.list tr:nth-child(odd) td	{background:#2e3742}
+
+
+/* table btn common style */
+table button	                    {text-align:center; vertical-align:middle; margin:0 2px; }
+table button:hover span                 {color: #fff;}
+table button.btn11						{display:inline-block; height:28px;margin:2px; padding:0 10px;border:1px solid #19a16c; background:#19a16c; color:#fff; border-radius:2px; }
+table button.btn11.on,
+table button.btn11:hover					{background:#128457; }
+table button.btn11 span					{display:inline-block; font-size:15px; line-height:15px;  font-family:'Noto Sans', sans-serif; }
+table button.btn12						{display:inline-block; height:28px; margin:2px; padding:0 10px; border:1px solid #1293cf; background:#1293cf; color:#fff; border-radius:2px; }
+table button.btn12.on,
+table button.btn12:hover					{background:#087ec9; }
+table button.btn12 span					{display:inline-block; font-size:15px; line-height:15px;  font-family:'Noto Sans', sans-serif; }
+table button.btn13						{display:inline-block; height:28px;margin:2px; padding:0 10px; border:1px solid #6a7c91; background:#6a7c91; color:#fff; border-radius:2px; }
+table button.btn13.on,
+table button.btn13:hover					{background:#52657b; }
+table button.btn13 span					{display:inline-block; font-size:15px; line-height:15px;   font-family:'Noto Sans', sans-serif; }
+
+/*유저관리 버튼*/
+.bbsBottom							{overflow:hidden; padding:25px 0 0 0;}
+.bbsBottom .btnbox button           {min-width: 114px;}
+.bbsBottom .btnbox button.big           {min-width: 145px;}
+.bbsBottom .btnbox					{float:right; }
+.bbsBottom .btnbox.center			{float:none; text-align:center; }
+
+/*유저 관리 - 등록*/
+.borderForm				{position:relative; padding:25px; box-shadow:0 0 5px #202730;  background:#2a313b  }
+.borderForm ul			{}
+.borderForm ul li		{}
+.borderForm div.form-group + .form-group	{margin-top:27px; }
+.borderForm div.form-group	{margin-bottom: 0px;}
+.borderForm div label	{display:block; color:#fff; height:28px; margin-bottom: 0px; font-weight: 400;}
+.borderForm div input	{width:100%; color:#7d7d7d; }
+.borderForm div select{width:100%; color:#fff; }
+.borderForm div input.length_2		{float:left; width:50%; margin:0;}
+.borderForm div input.length_2	+input.length_2	{margin-left:5px; width:calc(50% - 5px);}
+.borderForm div.length_2_next		{padding: 5px 0 0;}
+input.bg.pw				{background:url(../images/contents/txt_pw.jpg) no-repeat 0 50% #384350}
+
+/*table a태그 색*/
+table td a {color:#adacb2 !important;}
+
+/*table 주소 길 경우 밑으로 내림*/
+table td.table-addr {word-break: break-all;}
+
+a.layerClose .layerClose-img {background: url("../images/common/pop_close.jpg") no-repeat 0 0; padding: 15px 7px; display: inline-block;}
+
+/*타임피커 스타일*/
+.dropdown-menu{background-color: #384350;}
+.bootstrap-timepicker-widget table td a {color: #0a8cdf !important;}
+.bootstrap-timepicker-widget table td a:hover {background-color: transparent !important;}
+.bootstrap-timepicker-widget table td input {color: #fff; padding: 0px;}
+
+/*데이터 피커 스타일*/
+.ui-widget-content,.ui-widget-header {background: #384350 !important; border: 0 !important; color: #d6d8da !important;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{background: #384350 !important; border: 0 !important; color: #d6d8da !important;}
+.ui-datepicker .ui-datepicker-next:after, .ui-datepicker .ui-datepicker-next:before{
+    border-right: 2px solid #fff;
+    content: '';
+    display: block;
+    height: 8px;
+    margin-top: -6px;
+    position: absolute;
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    right: 10px;
+    top: 50%;
+    width: 0;
+}
+.ui-datepicker .ui-datepicker-next:after{
+    margin-top: -1px;
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+a.ui-datepicker-next.ui-corner-all:hover{
+    background: #384350 !important; border: 0 !important;
+    top: 2px;
+    right: 2px;
+    cursor: pointer;
+}
+.ui-datepicker .ui-datepicker-prev:after, .ui-datepicker .ui-datepicker-prev:before{
+    border-right: 2px solid #fff;
+    content: '';
+    display: block;
+    height: 8px;
+    margin-top: -6px;
+    position: absolute;
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    right: 10px;
+    top: 50%;
+    width: 0;
+}
+.ui-datepicker .ui-datepicker-prev:after{
+    margin-top: -1px;
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+a.ui-datepicker-prev.ui-corner-all:hover{
+    background: #384350 !important; border: 0 !important;
+    top: 2px;
+    left: 2px;
+    cursor: pointer;
+}

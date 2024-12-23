@@ -1,0 +1,132 @@
+<div id="device_port_append" class="modal fade" tabindex="-1" role="dialog">
+    <div class="layerWrap" role="document">
+        <div class="layerContents">
+            <div class="user">
+                <div class="bbsTop">
+                    <h3>Virtual Station 추가</h3>
+                    <div class="model-search-item">
+                        <div class=" searchkBox">
+                            <div id="selectedUser"></div>
+                            <input type="hidden" id="user" value="">
+                            <input class="it" id="port" placeholder="포트 번호" type="text" value="">
+                            <select class="" id="user_search_type">
+                                <option value="email">이메일</option>
+                                <option value="name">이름</option>
+                                <option value="tel">연락처</option>
+                            </select>
+                            <input type="hidden" id="user_search_page" value="1">
+                            <input class="it" id="user_search_keyword" placeholder="검색할 내용을 입력하십시오." type="text" value="">
+                            <button class="btn" id="userSearch">검색</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div id="user_search_result">
+                </div>
+                <!--<div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="portAppend"> 등록 </button>
+                    <button type="button" class="btn btn-secondary formClear" data-dismiss="modal"> 닫기 </button>
+                </div>-->
+                <div class='bbsBottom'>
+                    <div class="btnbox">
+                        <button type='button' class='btn01' id='portAppend'> <span>등록</span> </button>
+                        <button type='button' class='btn02 formClear' data-dismiss='modal'> <span>닫기</span> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contents companyDetail">
+    <div class="contentsBody" id="content">
+        <div class="subCont">
+            <input id="device" name="device" value="<?php p($device['device_idx']); ?>" type="hidden">
+            <div class="borderView">
+                <table cellpadding="0" cellspacing="0">
+                    <colgroup>
+                        <col width="25%"/><col width=""/>
+                        <col width="25%"/><col width=""/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="col-sm-2 td_background">장비명</th>
+                        <td><span style="font-weight: bold; color: #fff"><?php p($device['device_name']); ?></span>
+                        </td>
+                        <th class="col-sm-2 td_background">시리얼</th>
+                        <td><?php p($device['device_serial']); ?></td>
+                    </tr>
+                    <tr>
+                        <th class="col-sm-2 td_background">하드웨어 / 소프트웨어 버전</th>
+                        <td><?php p($device['device_hw_version']); ?> / <?php p($device['device_sw_version']); ?></td>
+                        <th class="col-sm-2 td_background">서버 정보</th>
+                        <td><?php p($device['device_server']); ?></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="subCont mt100">
+            <div class="bbsTop">
+                <h3>Virtual Station 관리</h3>
+                <div class="searchkBox  btnbox">
+                    <button class="btn01 devicePort" data-target="#device_port_append" data-toggle="modal"><span>Virtual Station 추가</span></button>
+                </div>
+            </div>
+            <!--<?php
+                print_r($virtual);
+            ?>-->
+            <div class="borderList">
+                <table cellpadding="0" cellspacing="0" class="list">
+                    <colgroup>
+                        <col width="16%"/><col width="16%"/><col width="16%"/><col width="16%"/><col width="16%"/><col width="16%"/><col width="*"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th scope="col">이메일</th>
+                        <th scope="col">이름</th>
+                        <th scope="col">연락처</th>
+                        <th scope="col">포트번호</th>
+                        <th scope="col">승인여부</th>
+                        <th scope="col">관리</th>
+                        <th scope="col">삭제</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if (empty($virtual) === false): ?>
+                    <?php foreach ($virtual as $vit): ?>
+
+                    <tr>
+                        <td><?php p($vit['user_email']); ?></td>
+                        <td><?php p($vit['user_name']); ?> <?php p($vit['user_name_last']); ?></td>
+                        <td><?php p($vit['user_tel']); ?></td>
+                        <td><?php p($vit['virtual_port']); ?></td>
+                        <td><?php  p($vit['virtual_state']);?></td>
+                        <td>
+                            <?php if ($vit['virtual_state'] === 'Y'): ?>
+                            <button class="btn btn-default waves-effect waves-light userUsed" state="N" device="<?php p($device['device_idx']); ?>" port="<?php p($vit['virtual_port']); ?>">승인 거부</button>
+                            <?php else: ?>
+                            <button class="btn btn-default waves-effect waves-light userUsed" state="Y" device="<?php p($device['device_idx']); ?>" port="<?php p($vit['virtual_port']); ?>">승인</button>
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <button class="btn btn-default waves-effect waves-light virtualRemove"  vitual="<?php p($vit['virtual_idx']); ?>">삭제</button>
+                        </td>
+
+                    </tr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="7" class="empty"> empty </td>
+                    </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+</div>

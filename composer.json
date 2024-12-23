@@ -1,0 +1,20 @@
+{
+    "require": {
+        "container-interop/container-interop": "dev-master",
+        "slim/slim": "4.x-dev",
+        "slim/http": "^0.5",
+        "slim/psr7": "dev-master",
+        "slim/php-view": "dev-master",
+        "slim/csrf": "dev-master",
+        "slim/flash": "dev-master",
+        "predis/predis": "dev-master",
+        "monolog/monolog": "dev-master",
+        "nesbot/carbon": "dev-master",
+        "ircmaxell/password-compat": "dev-master",
+        "phootwork/collection": "dev-master",
+        "cartalyst/sentinel": "dev-master",
+        "geggleto/slimq": "dev-master",
+        "zhangshize/slim-facades": "1.1.5",
+        "pimple/pimple": "dev-master"
+    }
+}

@@ -1,0 +1,322 @@
+
+<div class="footer">
+    <div class="foot">
+        <!--<select name="" title="">
+            <option value="" selected="selected">한국어</option>
+            <option value=""></option>
+        </select>
+        <a href="#">고객센터</a>-->
+    </div>
+
+    <div class="copy">
+        UlalaLAB © 2016
+    </div>
+</div>
+
+</div> <!-- contentsBody end -->
+</div> <!-- contents end -->
+</div> <!-- container end -->
+</div> <!-- wrap end -->
+
+<div class="dimm" style="display:none;"></div>
+
+
+<script src="/js/modernizr.min.js"></script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script-->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/moment.js"></script>
+<script src="/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="/plugins/flot-chart/jquery.flot.js"></script>
+<script src="/plugins/flot-chart/jquery.flot.pie.js"></script>
+<script src="/plugins/flot-chart/jquery.flot.time.js"></script>
+<script src="/plugins/flot-chart/jquery.flot.tooltip.min.js"></script>
+<script src="/plugins/flot-chart/jquery.flot.resize.js"></script>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/detect.js"></script>
+<script src="/js/fastclick.js"></script>
+<script src="/js/jquery.slimscroll.js"></script>
+<script src="/js/jquery.blockUI.js"></script>
+<script src="/js/waves.js"></script>
+<script src="/js/jquery.nicescroll.js"></script>
+<script src="/js/jquery.slimscroll.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+
+<!-- KNOB JS -->
+<!--[if IE]>
+        <script type="text/javascript" src="/plugins/jquery-knob/excanvas.js"></script>
+        <![endif]-->
+
+
+<!-- Sweet Alert js -->
+<script src="/plugins/bootstrap-sweetalert/sweet-alert.min.js"></script>
+<script src="/pages/jquery.sweet-alert.init.js"></script>
+
+<!-- dygraph -->
+<script type="text/javascript" src="/js/dygraph.js"></script>
+<script type="text/javascript" src="/js/shapes.js"></script>
+<script type="text/javascript" src="/js/smooth-plotter.js"></script>
+<script type="text/javascript" src="/js/smooth-fill-plotter.js"></script>
+<script type="text/javascript" src="/js/crosshair.js"></script>
+
+<!-- echarts -->
+<script src="/js/echarts.min.js" language="javascript" type="text/javascript"></script>
+
+<!-- jquery-circle-progress -->
+<script type="text/javascript" src="/js/circle-progress.min.js"></script>
+
+
+<!-- App js -->
+<script src="/js/jquery.core.js"></script>
+<script src="/js/jquery.app.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/common.js"></script>
+<script>
+    inputTitleTxt();
+
+    lnbMenu();
+</script>
+
+
+<script language="javascript" type="text/javascript">
+    //<![CDATA[
+
+    /* circle  */
+    /* circle  */
+    var circleOption = {
+        size:210,
+        lineCap: 'round',
+        startAngle : 4.7,
+        emptyFill : "#1f232d",
+        fill : { gradient: [["#06c0fe",0.1],["#774ef7",0.7]] , gradientDirection: [150, 100,0, 150] }
+    }
+    function circle(str){
+        $(str).each(function(){
+            var option = circleOption;
+            option.value = $(this).attr("value");
+            $(this).circleProgress(circleOption);
+        })
+
+    }
+    circle(".circleItem");
+
+
+
+
+    /* bar Chart */
+    /* bar Chart */
+    /* bar Chart */
+    var barChartOption = {
+        legend: {
+            data:['OK'],
+            bottom:0,
+            itemWidth : 30,
+            itemHeight : 5,
+            textStyle :{
+                color:'#fff',
+                fontFamily : 'Noto Sans'
+            }
+        },
+        animation : false,
+        barWidth:60,
+        grid: {
+            left: '20',
+            right: '20',
+            top: '10',
+            bottom: '13%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ['NOK'],
+                axisLine: {lineStyle:{color:'#4a586a'}},
+                axisTick: {show: false},
+                axisLabel: {color:'#ffffff',margin:3},
+                splitLine: {lineStyle:{color:'#313d4b'}},
+                margin:0
+            }
+        ],
+        yAxis : [
+            {
+                min: 0,
+                max: 30,
+                position : "left",
+                type : 'value',
+                axisLine: {lineStyle:{color:'#4a586a'}},
+                axisTick: {show: false},
+                axisLabel: {color:'#ffffff',margin:3},
+                splitLine: {lineStyle:{color:'#313d4b'}}
+            }
+        ],
+        series : [
+            {
+                name:'OK',
+                type:'bar',
+                stack: 'aa',
+                color:'#ea2427',
+                data:[132],
+                animation : false,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'outside',
+                        color:'#fff',
+                        padding : [5,10],
+                        backgroundColor:"#111418",
+                    }
+                },
+            }
+        ]
+    };
+
+
+
+/*    /!* bar Chart left *!/
+    var chartBar = document.getElementById("chart_bar_1");
+    var chartBar_1 = echarts.init(chartBar);
+    var chartBar_1_option = barChartOption;
+    chartBar_1_option.grid.right = 0;
+    chartBar_1_option.xAxis[0].data = ["NOK"];
+    chartBar_1_option.series[0].name = "name";
+    chartBar_1_option.series[0].data = [12];
+
+    chartBar_1.setOption(chartBar_1_option, true);
+
+
+
+    /!* bar Chart right *!/
+    var chartBar = document.getElementById("chart_bar_2");
+    var chartBar_2 = echarts.init(chartBar);
+    var chartBar_2_option = barChartOption;
+    chartBar_2_option.grid.left = 0;
+    chartBar_2_option.grid.right = 2;
+    chartBar_2_option.xAxis[0].data = ["OK"];
+    chartBar_2_option.yAxis[0].position = "right";
+    chartBar_2_option.yAxis[0].axisLabel = {show: false};
+    chartBar_2_option.series[0].name = "name";
+    chartBar_2_option.series[0].data = [18];
+    chartBar_2_option.series[0].color = "#28b14a";
+
+    chartBar_2.setOption(chartBar_2_option, true);*/
+
+
+    /*$(window).on("resize",function(){
+
+        chartBar_1.resize();
+        chartBar_2.resize();
+
+    })*/
+
+
+
+    /* line Chart  */
+    /* line Chart  */
+    /* line Chart  */
+    /*var chart_1_Data =
+        "20061001,1.0195\n" +
+        "20061002,1.6332\n" +
+        "20061003,1.4432\n" +
+        "20061004,1.5273\n" +
+        "20061005,2.2871\n" +
+        "20061006,2.0195\n" +
+        "20061007,2.6332\n" +
+        "20061008,2.4432\n" +
+        "20061009,2.5273\n" +
+        "20061010,3.2871\n" +
+        "20061011,3.0195\n" +
+        "20061012,4.6332\n" +
+        "20061013,5.4432\n" +
+        "20061014,5.5273\n" +
+        "20061015,4.2871\n" +
+        "20061016,3.0195\n" ;
+
+
+    var chart_1 = new Dygraph(
+        document.getElementById("reportChart_1"),
+        chart_1_Data,
+        {
+            labels: ['x','Virtual Station 5'],
+            legend : "follow",
+            color: "#3481f6",
+            axisLineColor : "#4a586a",
+            drawPoints: true,
+            pointSize : 5,
+            strokeWidth : 2,
+            fillAlpha : 1,
+            fillGraph : true,
+            drawHighlightPointCallback : Dygraph.Circles.CIRCLE,
+            plotter: [
+                Dygraph.smoothFillPlotter,
+                Dygraph.smoothPlotter,
+            ],
+            highlightSeriesOpts: {
+                highlightCircleSize: 2,
+                fillAlpha : 0.1,
+            },
+            unhighlightCallback: function(e, x, pts, row) {
+                //console.log( "<b>Highlight</b> " + pts_info(e,x,pts,row));
+                $("#reportChart_1_labeling").hide();
+            },
+            axes: {
+                x: {
+                    gridLineColor: "#384350",
+                },
+                y: {
+                    gridLineColor: "#384350",
+                    axisLabelWidth: 30
+                }
+            },
+            legendFormatter: function(data){
+                var html =  "<span class='date'>" + data.xHTML +  "</span> "
+                var html2 = ""
+                var min=max=avg=0;
+                data.dygraph.rawData_.forEach(function(arr){
+                    var a = arr[1];
+                    if(min==0){ min=a;}
+                    else{min = Math.min(min,a)}
+                    max = Math.max(max,a);
+                    avg += parseInt(a,10);
+                });
+                avg = Math.round( (avg/data.dygraph.rawData_.length) *100 )/100
+                min = Math.round( min*100 )/100
+                max = Math.round( max*100 )/100
+                console.log(min,max , avg )
+                data.series.forEach(function(series) {
+                    if (!series.isVisible) return;
+                    var labeledData =  series.yHTML;
+                    html +=   "<span class='pos'><em class='tit'>CPK</em><em class='info'>" + labeledData + "</em></span>";
+                    html +=   "<span><em class='tit'>MIN</em><em class='info'>" + min + "</em></span>";
+                    html +=   "<span><em class='tit'>MAX</em><em class='info'>" + max + "</em></span>";
+                    html2 +=   "<span class='pos'><em class='tit'>CPK</em><em class='info'>" + labeledData + "</em></span>";
+                    html2 +=   "<span><em class='tit'>MIN</em><em class='info'>" + min + "</em></span>";
+                    html2 +=   "<span><em class='tit'>MAX</em><em class='info'>" + max + "</em></span>";
+                    html2 +=  "<span><em class='tit'>AVG</em><em class='info'>" + avg + "</em></span>";
+                });
+                if(data.xHTML) $("#reportChart_1_labeling").show().html(html2);
+                return html
+            },
+            plugins: [
+                new Dygraph.Plugins.Crosshair({
+                    direction: "vertical"
+                })
+            ]
+        }
+    );*/
+
+
+
+
+    //]]>
+</script>
+
+<?php if (empty($js) === false): ?>
+    <?php foreach ($js as $j): ?>
+        <script src="<?php p($j); ?>"></script>
+    <?php endforeach; ?>
+<?php endif; ?>
+</body>
+
+</html>

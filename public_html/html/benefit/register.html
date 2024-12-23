@@ -1,0 +1,51 @@
+<div class="wrapper-page login">
+    <div class="loginContent join">
+        <div class="text-center">
+            <a class="logo" href="/">
+                <img src="/images/login_logo.png" style="margin-bottom: 15px;" />
+            </a>
+        </div>
+        <div class="loginbgBox">
+            <div class="tit">
+                <?php ep('reg_member'); ?>
+            </div>
+            <form id="registerForm" class="form-horizontal" method="POST" action="/confirm">
+                <ul>
+                    <li>
+                        <input class="it email bg" placeholder="<?php ep('input_email'); ?>" required="" id="email" name="email" type="email">
+                        </input>
+                    </li>
+                    <li>
+                        <input class="it name1 bg" placeholder="<?php ep('name_first'); ?>" required="" id="name" name="name" type="text">
+                        </input>
+                        <input class="it name2 bg" placeholder="<?php ep('name_last'); ?>" required="" id="name_last" name="name_last" type="text">
+                        </input>
+                    </li>
+                    <li>
+                        <input class="it pw1 bg" placeholder="<?php ep('input_password_detail'); ?>" id="passwd" name="passwd" required="" type="password">
+                        </input>
+                    </li>
+                    <li>
+                        <input class="it pw2 bg" placeholder="<?php ep('input_password_confirm'); ?>" id="confirm" name="confirm" required="" type="password">
+                        </input>
+                    </li>
+                </ul>
+                <div class="idSaveChk">
+                    <div class="">
+                        <input type="checkbox" class="chk" name="" id="checkbox-atlas"/> <label for="checkbox-atlas">아트라스콥코 전용</label>
+                    </div>
+                    <div>
+                        <input checked="checked" id="checkbox-signup" type="checkbox">
+                        <label for="checkbox-signup">
+                            <?php ep('agree_terms_ok'); ?>
+                        </label>
+                    </div>
+                    <a href="#" class="agree" onclick="alert('준비중입니다.')"><?php ep('agree_terms'); ?></a>
+                </div>
+                <div class="btnBox">
+                    <button type="submit" id="register" ><span class=""><?php ep('reg_member'); ?></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
